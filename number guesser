@@ -1,0 +1,41 @@
+import random
+
+
+difficulty= input("Pick a difficulty, easy(1-10), medium(1-50)," \
+" hard(1-100), extreme(1-1000)," \
+" insanity(1-10000 or impossible(1, 100000): ")
+number= 0
+count = 5
+guess= 10000
+if difficulty == "easy":
+  number = random.randrange(1, 10)
+elif difficulty == "medium":
+  number = random.randrange(1, 50)
+elif difficulty == "hard":
+  number = random.randrange(1, 100)
+elif difficulty == "extreme":
+  number = random.randrange(1, 1000)
+elif difficulty == "insanity":
+  number = random.randrange(1, 10000)
+elif difficulty == "impossible":
+  number = random.randrange(1, 100000)
+
+while guess != number:
+    guess= int(input("Guess the number: "))
+  
+    if guess < number:
+      print("Higher")
+    elif guess > number:
+      print("Lower")
+    count = count - 1
+
+    if guess == number:
+      print(f"Well done, the number was {number} 🏆")
+      print("This is the end of the game, run the program again to keep playing.")
+      print("This program was made by Todd😀") 
+
+    if count == 0 and guess != number:
+      print(f"Out of attempts, the number was {number}🥈")
+      print("This is the end of the game, run the program again to keep playing.")
+      print("This program was made by Todd😀") 
+      break 
